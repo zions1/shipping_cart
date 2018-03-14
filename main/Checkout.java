@@ -2,6 +2,7 @@ package main;
 
 import main.service.OfferServiceFactory;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import static java.util.Collections.frequency;
 
 public class Checkout {
 
-    private static final double APPLE_COST = 0.60;
-    private static final double ORANGE_COST = 0.25;
+    private static final int APPLE_COST = 60;
+    private static final int ORANGE_COST = 25;
     private static final String APPLE = "Apple";
     private static final String ORANGE = "Orange";
 
@@ -26,7 +27,8 @@ public class Checkout {
      * @return The total cost.
      */
     public String printTotalCosts(List<String> items){
-        return NumberFormat.getCurrencyInstance().format(calculate(items));
+        BigDecimal total = new BigDecimal(calculate(items) * 0.01);
+        return NumberFormat.getCurrencyInstance().format(total);
     }
 
     /**
@@ -34,8 +36,8 @@ public class Checkout {
      * @param items The list of items.
      * @return The total cost.
      */
-    private double calculate(List<String> items) {
-        double total = 0;
+    private int calculate(List<String> items) {
+        int total = 0;
         int applesFreq = frequency(items, APPLE);
         total += offerServiceFactory.dedicatedFor(APPLE).apply(applesFreq, APPLE_COST);
 

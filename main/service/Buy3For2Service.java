@@ -9,7 +9,7 @@ public class Buy3For2Service implements OfferService {
      * @return The total cost.
      */
     @Override
-    public double apply(Integer numberOfItems, Double costOfItem) {
+    public int apply(Integer numberOfItems, Integer costOfItem) {
         return numberOfItems != 0 ? (numberOfItems / 3) * 2 * costOfItem + (numberOfItems % 3) * costOfItem : 0;
     }
 }

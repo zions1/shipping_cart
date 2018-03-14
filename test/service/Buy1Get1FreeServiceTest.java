@@ -16,9 +16,9 @@ class Buy1Get1FreeServiceTest {
 
     @org.junit.jupiter.api.Test
     void shouldApplyBuy1Get1FreeOffer() {
-        assertThat("1 Item ", buy1Get1FreeService.apply(1, 0.60), is(0.60));
-        assertThat("2 Items", buy1Get1FreeService.apply(2, 0.60), is(0.60));
-        assertThat("3 Items", buy1Get1FreeService.apply(3, 0.60), is(1.20));
+        assertThat("1 Item ", buy1Get1FreeService.apply(1, 60), is(60));
+        assertThat("2 Items", buy1Get1FreeService.apply(2, 60), is(60));
+        assertThat("3 Items", buy1Get1FreeService.apply(3, 60), is(120));
     }
 
 }

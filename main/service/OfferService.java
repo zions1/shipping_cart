@@ -8,5 +8,5 @@ public interface OfferService {
      * @param costOfItem The cost of items.
      * @return The total cost.
      */
-    double apply(Integer numberOfItems, Double costOfItem);
+    int apply(Integer numberOfItems, Integer costOfItem);
 }

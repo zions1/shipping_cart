@@ -16,10 +16,10 @@ class Buy3For2ServiceTest {
 
     @org.junit.jupiter.api.Test
     void shouldApplyBuy3For2Offer() {
-        assertThat("1 Item ", buy3For2Service.apply(1, 0.25), is(0.25));
-        assertThat("2 Items", buy3For2Service.apply(2, 0.25), is(0.50));
-        assertThat("3 Items", buy3For2Service.apply(3, 0.25), is(0.50));
-        assertThat("4 Items", buy3For2Service.apply(4, 0.25), is(0.75));
+        assertThat("1 Item ", buy3For2Service.apply(1, 25), is(25));
+        assertThat("2 Items", buy3For2Service.apply(2, 25), is(50));
+        assertThat("3 Items", buy3For2Service.apply(3, 25), is(50));
+        assertThat("4 Items", buy3For2Service.apply(4, 25), is(75));
     }
 
 }

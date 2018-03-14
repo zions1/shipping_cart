@@ -9,7 +9,7 @@ public class Buy1Get1FreeService implements OfferService {
      * @return The total cost.
      */
     @Override
-    public double apply(Integer numberOfItems, Double costOfItem) {
+    public int apply(Integer numberOfItems, Integer costOfItem) {
         return numberOfItems != 0 ? (numberOfItems / 2) * costOfItem + (numberOfItems % 2) * costOfItem : 0;
     }
 
