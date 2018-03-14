@@ -1,5 +1,7 @@
 package main;
 
+import main.service.OfferServiceFactory;
+
 import java.text.NumberFormat;
 import java.util.List;
 
@@ -11,6 +13,12 @@ public class Checkout {
     private static final double ORANGE_COST = 0.25;
     private static final String APPLE = "Apple";
     private static final String ORANGE = "Orange";
+
+    private OfferServiceFactory offerServiceFactory;
+
+    public Checkout(OfferServiceFactory offerServiceFactory) {
+        this.offerServiceFactory = offerServiceFactory;
+    }
 
     /**
      * Prints the total cost of the list of items.
@@ -29,9 +37,10 @@ public class Checkout {
     private double calculate(List<String> items) {
         double total = 0;
         int applesFreq = frequency(items, APPLE);
-        total += APPLE_COST * applesFreq;
-        double orangesFreq = frequency(items, ORANGE);
-        total += ORANGE_COST * orangesFreq;
+        total += offerServiceFactory.dedicatedFor(APPLE).apply(applesFreq, APPLE_COST);
+
+        int orangesFreq = frequency(items, ORANGE);
+        total += offerServiceFactory.dedicatedFor(ORANGE).apply(orangesFreq, ORANGE_COST);
         return total;
     }
 
